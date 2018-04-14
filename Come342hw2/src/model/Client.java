@@ -73,5 +73,11 @@ public class Client {
 			System.out.println(i + " " + clientList.get(i).getName());
 		}
 	}
+	
+	//Gamze Alver
+	//14.04.2018
+	public void addNewCampaign(Campaign campaign) {
+		this.campaignList.add(campaign);
+	}
 
 }

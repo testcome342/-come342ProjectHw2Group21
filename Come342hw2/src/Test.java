@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import helper.Database;
+import model.Campaign;
 import model.Client;
 
 public class Test {
@@ -60,7 +62,54 @@ public class Test {
 
 	private static void AddNewClientUI() {
 
+		//Gamze Alver
+		//14.04.2018
 		
+		Client.getClients();
+		
+		System.out.print("Company Name= ");
+		String name = new Scanner(System.in).nextLine();
+		
+		System.out.print("Company Address= ");
+		String address = new Scanner(System.in).nextLine();
+		
+		System.out.print("Company Email= ");
+		String email = new Scanner(System.in).nextLine();
+		
+		System.out.print("Contact Name= ");
+		String contactName = new Scanner(System.in).nextLine();
+		
+		System.out.print("Contact Email= ");
+		String contactEmail = new Scanner(System.in).nextLine();
+		
+		
+		Client client = new Client(name, address, email, contactName, contactEmail);
+		
+		
+		System.out.println("Would you like to add a campaign? (Yes/No)");
+		
+		String response = new Scanner(System.in).nextLine();
+		
+		if(response.toLowerCase().equals("yes")) {
+			System.out.print("Campaign Title= ");
+			String campaignTitle = new Scanner(System.in).nextLine();
+			
+			System.out.print("Campaign StartDate= ");
+			String startDate = new Scanner(System.in).nextLine();
+			
+			System.out.print("Campaign FinishDate= ");
+			String finishDate = new Scanner(System.in).nextLine();
+			
+			System.out.print("Campaign Estimated Cost= ");
+			Double estimatedCost = new Scanner(System.in).nextDouble();
+			
+			Campaign campaign = new Campaign(campaignTitle, startDate, finishDate, estimatedCost);
+			
+			client.addNewCampaign(campaign);
+			
+			Database.clientList.add(client);
+		}
+
 		
 	}
 
